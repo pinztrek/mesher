@@ -81,12 +81,13 @@ Complete URL (includes all channels): https://meshtastic.org/e/#Cg8SAQEaBm1lc2hl
 ```
 
 ## Participants:
-|Ed kc4web||
-|Alan km4ba|t1k, 2x t114, nebra 1w hat|
-|Mike k8mdm|t1k, nebra meshtoad|
-|Doug kd4nc|planned t1k, nebra 2w hat|
-|Eddy wd3d||
-|Ralph n4neq||
-|Phillip n4trt|t1k?|
-|||
-|||
+| Name | Devices |
+| Ed kc4web | |
+| Alan km4ba | t1k, 2x t114, nebra 1w hat |
+| Mike k8mdm| t1k, nebra meshtoad |
+| Doug kd4nc| planned t1k, nebra 2w hat |
+| Eddy wd3d|  |
+| Ralph n4neq |  |
+| Phillip n4trt | t1k? |
+|  |  |
+|  |  |
