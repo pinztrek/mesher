@@ -24,6 +24,8 @@ The following url should be used to configure the channel:
 - normal Telemetry and position broadcasts are allowed
 - telemetry infrastructure broadcasts are not allowed
 
+### Whenever possible we will confirm communication with known good nodes when in range.
+
 ## Test Intercom via Signal
 The following signal group will be utilized to coordinate, share results and observations, etc:
 <https://signal.group/#CjQKICHKvDzE1d_s0lRKnHfxbDkyFsVysvCD4aT_GDJ0pRUjEhApi9pOCyxAmOFAPNdHw9RT>
