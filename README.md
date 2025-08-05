@@ -56,7 +56,7 @@ sudo systemctl stop meshtasticd
 sudo rm /var/lib/meshtasticd/.portduinio/default/prefs/channels.proto
 sudo systemctl start meshtasticd
 ```
-<br>
+
 ```
 # Set the channels for the test plan
 # mesher on slot 50 with psk of AQ==
