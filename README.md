@@ -47,7 +47,8 @@ You can edit & restore at a later date using:
 
 ### The following commands will set a meshtaticd device for the correct channel definition:
 
-```# Clear your channel definition (may have to edit the path)
+```
+# Clear your channel definition (may have to edit the path)
 rm /var/lib/meshtasticd/.portduinio/default/prefs/channels.proto
 # Set the channels for the test plan
 # mesher on slot 50 with psk of AQ==
