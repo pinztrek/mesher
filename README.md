@@ -81,7 +81,10 @@ Complete URL (includes all channels): https://meshtastic.org/e/#Cg8SAQEaBm1lc2hl
 ```
 
 ## Participants:
+
+
 | Name | Devices |
+| :------: | :------: |
 | Ed kc4web | |
 | Alan km4ba | t1k, 2x t114, nebra 1w hat |
 | Mike k8mdm| t1k, nebra meshtoad |
