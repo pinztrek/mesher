@@ -51,19 +51,19 @@ I have found meshtasticd to be finicky about editing channel definitions, and th
 
 So for the test I would recommend clearing the channel definition by brute force:
 ```
-# Clear your channel definition (may have to edit the path)
+\# Clear your channel definition (may have to edit the path)
 sudo systemctl stop meshtasticd
 sudo rm /var/lib/meshtasticd/.portduinio/default/prefs/channels.proto
 sudo systemctl start meshtasticd
 ```
- # Set the channels for the test plan
- # mesher on slot 50 with psk of AQ==
+\# Set the channels for the test plan
+\# mesher on slot 50 with psk of AQ==
 meshtastic --ch-set name "mesher" --ch-set psk default --ch-index 0
- # nokey with blank psk, which will show in meshtastic --info as AA==, the internal representation of an empty PSK
+\# nokey with blank psk, which will show in meshtastic --info as AA==, the internal representation of an empty PSK
 meshtastic --ch-set name "nokey" --ch-set psk none --ch-index 1
- # Set role, nodeinfo and maxhop
+\# Set role, nodeinfo and maxhop
 meshtastic --set device.role 2 --set device.node_info_broadcast_secs 900 --set lora.hop_limit 3
- # edit to set your fixed location unless you are using GPS
+\# edit to set your fixed location unless you are using GPS
 meshtastic --setlon -84.656852 --setlat 33.909044 --setalt 300 --set position.position_broadcast_secs 3600
 ```
 The above channel commands should yield a config that looks like this when `meshtastic --info` (or `m_info` on systems with my shims)
