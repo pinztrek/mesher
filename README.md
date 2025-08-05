@@ -47,9 +47,15 @@ You can edit & restore at a later date using:
 
 ### The following commands will set a meshtaticd device for the correct channel definition:
 
+I have found meshtasticd to be finicky about editing channel definitions, and the delete option did not work. 
+
+So for the test I would recommend clearing the channel definition by brute force:
 ```
 # Clear your channel definition (may have to edit the path)
-rm /var/lib/meshtasticd/.portduinio/default/prefs/channels.proto
+sudo systemctl stop meshtasticd
+sudo rm /var/lib/meshtasticd/.portduinio/default/prefs/channels.proto
+sudo systemctl start meshtasticd
+```
 # Set the channels for the test plan
 # mesher on slot 50 with psk of AQ==
 meshtastic --ch-set name "mesher" --ch-set psk default --ch-index 0
