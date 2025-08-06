@@ -40,6 +40,18 @@ You can do an export of your current configuration and save that file before loa
 
 We need to test whether these will work across devices. But until then, I've saved config files for the T114 and t1000e. 
 
+## Putting an existing T114, T1k, etc on mesher:
+We are seeing some nuances in the meshtastic firmware which requires some clearing when moving frequencies. This is likely due to delayed writes from the firmware to the protobuffers which store the data on flash. Likewise, we have seen multiple cases of old chats with issues. 
+
+### Delete any existing channels via radio config before trying to load the URL
+- It will recreate a default *LongFast*
+- Reboot the node
+- Use the URL or QR code above to add the *mesher* and *nokey* channels
+
+### Delete any existing chats, as they seem to remember the frequency
+- Go to the chat tab, and delete any existing chats including those for the channels. (Long press to select in the android client, typically left swipe in IOS)
+- It will recreate them to match your channel new definitions. You should see *mesher* and *nokey*, with appropriate icons.
+
 ## Nebra and other Pi based configs running meshtasticd
 Pi based systems require additional setup. As always, do a backup prior to executing. 
 `meshtastic --export-config  | grep -v "No Serial Mesh" > myconfig.yaml` 
