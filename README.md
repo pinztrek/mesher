@@ -45,12 +45,13 @@ We are seeing some nuances in the meshtastic firmware which requires some cleari
 
 ### Delete any existing channels via radio config before trying to load the URL
 - It will recreate a default *LongFast*
-- Reboot the node
+- Reboot the node (In *radio config* at the bottom)
 - Use the URL or QR code above to add the *mesher* and *nokey* channels
+- You should now see *mesher* and *nokey* channels with appropriate icons (red open padlock for mesher, yellow open padlock for nokey)
 
 ### Delete any existing chats, as they seem to remember the frequency
 - Go to the chat tab, and delete any existing chats including those for the channels. (Long press to select in the android client, typically left swipe in IOS)
-- It will recreate them to match your channel new definitions. You should see *mesher* and *nokey*, with appropriate icons.
+- It will recreate them to match your channel new definitions. You should see *mesher* and *nokey*, with appropriate icons. (red open padlock for mesher, yellow open padlock for nokey)
 
 ## Nebra and other Pi based configs running meshtasticd
 Pi based systems require additional setup. As always, do a backup prior to executing. 
