@@ -101,7 +101,7 @@ Complete URL (includes all channels): https://meshtastic.org/e/#Cg8SAQEaBm1lc2hl
 | Ed kc4web | Confirmed | t1k, t114, solar t114 |
 | Alan km4ba | Confirmed | t1k, 2x t114, nebra 1w hat |
 | Mike k8mdm| Confirmed |t1k, nebra meshtoad |
-| Doug kd4nc| planned | t1k, nebra 2w hat, meshpocket |
+| Doug kd4nc| Confirmed | t1k, nebra 2w hat, meshpocket |
 | Eddy wd3d|  |  |
 | Ralph n4neq | Confirmed | t114 house, t114 mobile |
 | Phillip n4trt | | t1k? |
