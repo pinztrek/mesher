@@ -174,3 +174,30 @@ the example above, a repeater in the large Atlanta area should have:
 
 And perhaps some legacy regions like *#atlanta* or similar if needed.
 
+18. **Region Scoping does not solve all problems**
+Radio waves travel line of site. A high repeater near a state boundry can create issues as:
+- The tendancy is to allow traffic from both states
+- Are also typically heard far into the interior of both states
+
+This effectively funnels two or more states of traffic far into the interior of a state. 
+
+There are RF methods to mitigate, but just recognize that as traffic increases the scoping applied to high sites may need to change and become more restrictive. 
+
+## Typical firmware commands to set regions
+
+Depending on firmware level, configuring for the example metro area above would be:
+**16.x**
+``
+region def us-southeast us-ga us-ga-atl|* atlanta
+region save
+region allowf *q 
+``
+
+**15.x**
+``
+region put us-southeast
+region put us-ga us-southeast
+region put us-ga-atl us-ga
+region put atlanta
+region save
+``
