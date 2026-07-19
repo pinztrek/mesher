@@ -79,11 +79,11 @@ compete with local. *Region scoping* allows users/repeaters to control whether
 traffic from adjacent regions should contend with local traffic. 
 
 Examples:
-**#public** it would be appropriate to use a state or even multi-state *region scope* to communicate. You *want* the traffic to traverse adjacent regions.
+- **#public** it would be appropriate to use a state or even multi-state *region scope* to communicate. You *want* the traffic to traverse adjacent regions.
 
-**#wardriving** As high volume traffic that only exists to communicate with local repeaters, it should be tightly scoped to your immediate area to prevent deluge. *This is a significant problem in the SE, with wardriving traffic from 3 states away creating airtime contention*.
+- **#wardriving** As high volume traffic that only exists to communicate with local repeaters, it should be tightly scoped to your immediate area to prevent deluge. *This is a significant problem in the SE, with wardriving traffic from 3 states away creating airtime contention*.
 
-**#test or #bot** Similar to wardriving, testing is inappropriate to use wider scoping. 
+- **#test or #bot** Similar to wardriving, testing is inappropriate to use wider scoping. 
 Metro or state level might be appropriate to get more than one bot response. 
 
 7. **Unscoped Packets** Meshcore uses the * indicator to designate unscoped traffic. It is **not** a wildcard, it's just a shorthand for packets without a *transport code* scope.
@@ -113,7 +113,7 @@ There are also many counter examples, see below in the **Region Structure** sect
 10. **Region structure needs consensus** The region structure for your area should 
 be a work of collaboration and should be as standard as possible while allowing/enabling functionality and managing airtime contention.
 
-11. "*Standard is better than better**  It is more important for a state or metro area to agree *and use* a consistent approach than it is to have the optimal subregion definition. Which leads to the following point.
+11. **Standard is better than better**  It is more important for a state or metro area to agree *and use* a consistent approach than it is to have the optimal subregion definition. Which leads to the following point.
 
 12. **It's critical to get State level in usage** State level *region scoping* is needed
 now by many areas. It should be easy to agree on, the strong precent is something this form: **us-XX** (Where XX is the state abreviation). 
@@ -154,12 +154,12 @@ cryptic format on phones. Likewise, there is a byte limit on the length of the s
 ## Example Region Structures
 - **us**  (OR)
 - **us-southeast**
--- **us-ga**
---- **us-ga-nw** 
---- **us-ga-ne** 
---- **us-ga-sw** 
---- **us-ga-se** 
---- **us-ga-atl** 
+  - **us-ga**
+    - **us-ga-nw** 
+    - **us-ga-ne** 
+    - **us-ga-sw** 
+    - **us-ga-se** 
+    - **us-ga-atl** 
 
 Again, the hierarch is to help humans. The repeater only cares that the region
 *transport code* matches to determine whether to forward or not. 
@@ -169,8 +169,8 @@ purpose. It should only carry the regions it *should* forward traffic for. For
 the example above, a repeater in the large Atlanta area should have:
 
 - **us-southeast**
--- **us-ga**
---- **us-ga-atl** 
+  - **us-ga**
+    - **us-ga-atl** 
 
 And perhaps some legacy regions like *#atlanta* or similar if needed.
 
