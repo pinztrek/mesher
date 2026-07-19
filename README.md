@@ -17,17 +17,7 @@ packet consumes airtime that every other node in range can't use at the same
 moment. As repeater density increases, so does the risk of collisions, delayed
 delivery, and reduced effective throughput for everyone sharing the channel.
 
-Things to track and discuss here:
-- Repeater density per region and estimated overlap in coverage/hearing range
-- Advert intervals, flood vs. direct routing behavior, and hop limits in use
-- Observed collision/retry symptoms (missed acks, delayed delivery, duplicate floods)
-- Config changes made specifically to reduce channel load (e.g. longer advert
-  intervals, tighter hop limits, moving redundant repeaters to direct-only)
-- Before/after notes when a new repeater goes live near existing ones
-
-## Airtime Contention
-Simply defined, when usage increases the odds of collisions increase almost 
-exponentially. It can very quickly reach a point where only 1/3 to 1/2 of packets are
+It can very quickly reach a point where only 1/3 to 1/2 of packets are
 successfully received. 
 
 As airtime contention gets worse, it becomes harder for *"Listen before transmit"* to work, and packets the repeater is trying to forward cannot be sent, and will expire and dropped. 
@@ -123,6 +113,23 @@ with airtime contention from unbounded flooding as usage increases.
 
 Again, the hierarchy is to help humans. The repeater only cares that the region
 *transport code* matches to determine whether to forward or not. 
+
+Most countries with advanced *Meshcore* deployments have used country code, then 
+either state/provice abreviation, then 3 digit ISO metro code. (But not all)
+
+Also, most stack them hierarchical with hyphens (recommended, ex: us-ga-atl)
+
+This is the dominant approach in the US. 
+
+But several US states just have their subregion names:
+- **pnw**
+  - **or**
+  - **wa**
+    - **sea*
+    - **spokane**
+
+It's a name, not a route. So as long as it's unique in likely coverage areas it 
+probably does not matter
 
 21. **Repeaters should *not* carry all the regions for a state**. That defeats the purpose. It should only carry the regions it *should* forward traffic for. For the example above, a repeater in the large Atlanta area should have:
 
