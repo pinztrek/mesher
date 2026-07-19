@@ -1,109 +1,176 @@
 # mesher
-NW Atl Meshtastic test info
-# Objective
-Determine real world meshtastic node performance in the NW Atlanta suburban area (West Cobb specifically) on a (hopefully) uncongested frequency.
 
-This should help us understand and potentially improve mesh operation on the very busy LongFast default channel on slot 20 (906.875). What we see now is many nodes are heard, but only 5-10% of DM's reach the intended station. Even less traceroutes. We suspect channel contention is a core issue due to many distant nodes running high max hop counts, overly frequent broadcasts, etc. 
-# Method
-Operate several several handheld, mobile, and fixed nodes within a 5-10 mile radius using a common channel definition (Frequency, name, key, modem preset, etc) and critical parameters to establish a baseline. 
+Coordinating MeshCore repeater deployment and sharing field experience.
 
-Then incorporate a single moderately high (HAAT) site and see how that impacts usability. 
-# Test Plan
-## Common Channel definition
-### Frequency:
-For the test we will use Slot 50 on 914.375 as it is halfway between ham 927 repeater inputs and outputs, and to our knowledge does not have any mesh traffic on it. 
-### Primary Channel:
-*mesher* will be used as the primary channel, with the default PSK of AQ==, and the LongFast modem preset. The frequency is automatically set to slot 50 when the channel name of *mesher* is specified. 
-*nokey* will be used as a 2nd channel, with a blank (empty) psk. secondary and higher channels always use the modem preset of the primary. 
+## Objective
 
-The following url should be used to configure the channel:
-<https://meshtastic.org/e/#Cg8SAQEaBm1lc2hlcjoCCCAKCxoFbm9rZXk6AggQEgwIATgBQAdIAVAeaAE>
-## Other critical parameters:
-- *maxhops* will be set to 3 for rooftop or higher nodes, and 5 for all others
-- *nodeinfo* will be set to 900 for rooftop or higher nodes, and 1200-3600 for others
-- normal Telemetry and position broadcasts are allowed
-- telemetry infrastructure broadcasts are not allowed
+This repo purpose is the coordination point for planning, deploying, and tuning MeshCore
+repeaters, and for capturing what we learn along the way. Repeater placement,
+config, and behavior all affect the mesh for everyone on it, so the goal is to
+make deployment decisions visible and documented rather than tribal knowledge
+held by whoever installed a given node.
 
-### Whenever possible we will confirm communication with known good nodes when in range.
+## Airtime Contention
 
-## Test Intercom via Signal
-The following signal group will be utilized to coordinate, share results and observations, etc:
-<https://signal.group/#CjQKICHKvDzE1d_s0lRKnHfxbDkyFsVysvCD4aT_GDJ0pRUjEhApi9pOCyxAmOFAPNdHw9RT>
+LoRa airtime is a shared, finite resource — every repeater that rebroadcasts a
+packet consumes airtime that every other node in range can't use at the same
+moment. As repeater density increases, so does the risk of collisions, delayed
+delivery, and reduced effective throughput for everyone sharing the channel.
 
-## Test Plan Documentation:
-This github will be used to store/record details, configs, etc
+Things to track and discuss here:
+- Repeater density per region and estimated overlap in coverage/hearing range
+- Advert intervals, flood vs. direct routing behavior, and hop limits in use
+- Observed collision/retry symptoms (missed acks, delayed delivery, duplicate floods)
+- Config changes made specifically to reduce channel load (e.g. longer advert
+  intervals, tighter hop limits, moving redundant repeaters to direct-only)
+- Before/after notes when a new repeater goes live near existing ones
 
-## Test config files:
-Config files which can be used with the Android client can be found above. They will not overwrite nodenames, etc. But do overwrite other config items including channels, etc. 
+## Airtime Contention
+Simply defined, when usage increases the odds of collisions increase almost 
+exponentially. It can very quickly reach a point where only 1/3 to 1/2 of packets are
+successfully received. 
 
-You can do an export of your current configuration and save that file before loading the test configuration.
+As airtime contention gets worse, it becomes harder for *"Listen before transmit"* to work, and packets the repeater is trying to forward cannot be sent, and will expire and dropped. 
 
-We need to test whether these will work across devices. But until then, I've saved config files for the T114 and t1000e. 
+Users are often unaware, all they see are the packets from adjacent states (or local) which were lucky enough to get through.
 
-## Putting an existing T114, T1k, etc on mesher:
-We are seeing some nuances in the meshtastic firmware which requires some clearing when moving frequencies. This is likely due to delayed writes from the firmware to the protobuffers which store the data on flash. Likewise, we have seen multiple cases of old chats with issues. 
+This is not a new issue, it's existed as long as computer networking and made worse by LORA's half duplex limitation which leads to collisions on the best of days. And is made 
+worse when *hidden terminal* impact occurs. (Stations which cannot hear another station
+trying to send to the same repeater)
 
-### Delete any existing channels via radio config before trying to load the URL
-- It will recreate a default *LongFast*
-- Reboot the node (In *radio config* at the bottom)
-- Use the URL or QR code above to add the *mesher* and *nokey* channels
-- You should now see *mesher* and *nokey* channels with appropriate icons (red open padlock for mesher, yellow open padlock for nokey)
+## Region Scoping
 
-### Delete any existing chats, as they seem to remember the frequency
-- Go to the chat tab, and delete any existing chats including those for the channels. (Long press to select in the android client, typically left swipe in IOS)
-- It will recreate them to match your channel new definitions. You should see *mesher* and *nokey*, with appropriate icons. (red open padlock for mesher, yellow open padlock for nokey)
+*Region Scoping* was designed into *meshcore* as a learning from *Meshtastic* to deal
+with airtime contention from unbounded flooding as usage increases. 
 
-## Nebra and other Pi based configs running meshtasticd
-Pi based systems require additional setup. As always, do a backup prior to executing. 
-`meshtastic --export-config  | grep -v "No Serial Mesh" > myconfig.yaml` 
+### Region Learnings & Observations
 
-You can edit & restore at a later date using:
-`meshtastic --configure myconfig.yaml`
+1. **Region Scope *only* determines if a packet is forwarded by a repeater or not**
 
-### The following commands will set a meshtaticd device for the correct channel definition:
+2. **Region name is not a route**
+- The region name is simply that: a unique identifier
 
-I have found meshtasticd to be finicky about editing channel definitions, and the delete option did not work. 
+- All regions get hashed to 2 byte numbers for usage by the repeater in forward 
+decisions. This hashed code is called the *transport code*, is present in packets and is 
+a simple yes/no check. If the packet has a transport code in the table, it is forwarded. 
 
-So for the test I would recommend clearing the channel definition by brute force:
-```
-# Clear your channel definition (may have to edit the path)
-sudo systemctl stop meshtasticd
-sudo rm /var/lib/meshtasticd/.portduinio/default/prefs/channels.proto
-sudo systemctl start meshtasticd
-```
+- Even though some region names *(us-ga-atl)* imply a hierarchy, it's for readability / 
+administrative purposes only. **The repeater only checks to see if a packet matches the *transport code* when deciding whether to forward**
 
-```
-# Set the channels for the test plan
-# mesher on slot 50 with psk of AQ==
-meshtastic --ch-set name "mesher" --ch-set psk default --ch-index 0
-# nokey with blank psk, which will show in meshtastic --info as AA==, the internal representation of an empty PSK
-meshtastic --ch-set name "nokey" --ch-set psk none --ch-index 1
-# Set role, nodeinfo and maxhop
-meshtastic --set device.role 2 --set device.node_info_broadcast_secs 900 --set lora.hop_limit 3
-# edit to set your fixed location unless you are using GPS
-meshtastic --setlon -84.656852 --setlat 33.909044 --setalt 300 --set position.position_broadcast_secs 3600
-```
-The above channel commands should yield a config that looks like this when `meshtastic --info` (or `m_info` on systems with my shims)
-```
-Channels:
-  Index 0: PRIMARY psk=default { "psk": "AQ==", "name": "mesher", "moduleSettings": { "positionPrecision": 16, "isClientMuted": false }, "channelNum": 0, "id": 0, "uplinkEnabled": false, "downlinkEnabled": false }
-  Index 1: SECONDARY psk=unencrypted { "psk": "AA==", "name": "nokey", "moduleSettings": { "positionPrecision": 16, "isClientMuted": false }, "channelNum": 0, "id": 0, "uplinkEnabled": false, "downlinkEnabled": false }
+3. **Region Scope is completely separate than #channels**. They do not have to align, and in fact in many cases you will want different *region scope* for different channels depending on purpose
 
-Primary channel URL: https://meshtastic.org/e/#Cg8SAQEaBm1lc2hlcjoCCBASDAgBOAFABUgBUB5oAQ
-Complete URL (includes all channels): https://meshtastic.org/e/#Cg8SAQEaBm1lc2hlcjoCCBAKDhIBABoFbm9rZXk6AggQEgwIATgBQAVIAVAeaAE
-```
+4. **Companions receive all packets without regard to region scope**. Companion region settings (default or per channel) only impact what *region scope* is used for packets it sends.
 
-## Participants:
+4. **Region Scoping is completely different than regions for mapping**. For valuable tools like meshmapper, *region scoping* may be completely different than the defined 
+*geographic regions* used to collect and display wardriving coverage plots, packet 
+analysis tools, etc.
+
+This issue has led to much confusion. Mapping/analysis tools have recommended IATA 
+airport codes. This makes sense for their purposes. And it make make sense for 
+*region scoping* structure in some cases. But **it is not a requirement for region
+scoping to operate**.
+
+5. **Repeater "Default Region" only impacts packets it _generates_
+Advertisements being a primary example.
+
+6. **Region Scoping is the primary method of dealing with airtime contention**
+As deployments build out, traffic from adjacent states or metro areas start to 
+compete with local. *Region scoping* allows users/repeaters to control whether 
+traffic from adjacent regions should contend with local traffic. 
+
+Examples:
+**#public** it would be appropriate to use a state or even multi-state *region scope* to communicate. You *want* the traffic to traverse adjacent regions.
+
+**#wardriving** As high volume traffic that only exists to communicate with local repeaters, it should be tightly scoped to your immediate area to prevent deluge. *This is a significant problem in the SE, with wardriving traffic from 3 states away creating airtime contention*.
+
+**#test or #bot** Similar to wardriving, testing is inappropriate to use wider scoping. 
+Metro or state level might be appropriate to get more than one bot response. 
+
+7. **Unscoped Packets** Meshcore uses the * indicator to designate unscoped traffic. It is **not** a wildcard, it's just a shorthand for packets without a *transport code* scope.
+
+Typically there is a setting to allow unscoped packet forwarding in repeaters, or it may be set in your region configuration statement depending on firmware level. 
+
+7. **# often precedes regions, but is not typed/saved during configuration**
+This confuses many. When entering region names, just type the name (Ex: *us-ga*)
+
+8. **Companion Clients do not support regions well**. *Region Scoping* is a new capability
+The companion clients are adding support, but they are behind. But companions don't need
+much, just the capability to designate a region scope to be used in a #channel, and also (optionally) for adverts, etc. 
+
+Kieker is an exception, region support is much more visible and you can see if regions are in use on particular transmissions. 
+
+9. **Defining region scope on firmware repeaters is cryptic**
+Check your firmware for specific commands to configure regions
+
+10. **There are multiple approaches to defining regions for an area**
+The wonderful thing about standards is that there are so many to choose from. 
+
+This is very true with *region scoping*. Thera are some well defined approaches used 
+by many contries, at least at the top level. But they can diverge at lower levels based on local need. 
+
+There are also many counter examples, see below in the **Region Structure** section.
+
+10. **Region structure needs consensus** The region structure for your area should 
+be a work of collaboration and should be as standard as possible while allowing/enabling functionality and managing airtime contention.
+
+11. "*Standard is better than better**  It is more important for a state or metro area to agree *and use* a consistent approach than it is to have the optimal subregion definition. Which leads to the following point.
+
+12. **It's critical to get State level in usage** State level *region scoping* is needed
+now by many areas. It should be easy to agree on, the strong precent is something this form: **us-XX** (Where XX is the state abreviation). 
+
+It is very easy to get hung up on defining subregions, when the biggest airtime 
+contention is at state level. 
+
+12. **A sub-region should be able to define it's name and coverage area**
+It's easy to try to define things at the state level for all subregions, etc. 
+You'll run into resistance/adoption issues based on boundaries, names, etc. 
+
+The subregions exist to serve that particular area. 
+
+13. **Radio waves do not follow map boundaries** *Region scoping* structure should 
+factor in metro areas, rough state geographic "sub-regoins" (NE, NW, SE, etc).
+The purpose is to deal with airtime contention, so thought should be given to 
+the mesh coverage zones more than county boundaries. 
+
+14. **Metro areas can cross state boundaries** In many cases a metro area will straddle a state boundary. 
+One local example would be Chattanooga TN. Clearly would be part of *us-tn* region. But the reality is that it has many Alabama and Georgia suburban communities as part 
+of it's metro area. Given that, **us-tn-cha** would be an approprite region as an example. 
+**us** to indicate it's part of the US and make it unique. **chat** as the IATA 2 digit
+code for the local airport.  
+
+Yet users in AL or GA could use it for traffic intended for the metro area. 
+
+15. **Meta regions are OK** Many times it's convenient to have meta regions composing 
+other regions. A prime example would be something like **us-atlantic, us-southeast or us-se** which would include several states. Should be used selectively, but has a valid usage. 
+
+If there is not consensus, carrying duplicate names for the same area is probably
+better than stalling. Companions will hear it either way. Ex: *us-southeast* and *us-se*
+If you don't have agreement, carry both. Other states will have input. 
 
 
-| Name | Status | Devices |
-| :------: | :-----: | :------: |
-| Ed kc4web | Confirmed | t1k, t114, solar t114 |
-| Alan km4ba | Confirmed | t1k, 2x t114, nebra 1w hat |
-| Mike k8mdm| Confirmed |t1k, nebra meshtoad |
-| Doug kd4nc| Confirmed | t1k, nebra 2w hat, meshpocket |
-| Eddy wd3d|  |  |
-| Ralph n4neq | Confirmed | t114 house, t114 mobile |
-| Phillip n4trt | | t1k? |
-|  |  |
-|  |  |
+16. **simple/shorter is good** Region configurations often have to be hand typed in a 
+cryptic format on phones. Likewise, there is a byte limit on the length of the string returned by the **discover regions** meshcore operation.
+
+## Example Region Structures
+- **us**  (OR)
+- **us-southeast**
+-- **us-ga**
+--- **us-ga-nw** 
+--- **us-ga-ne** 
+--- **us-ga-sw** 
+--- **us-ga-se** 
+--- **us-ga-atl** 
+
+Again, the hierarch is to help humans. The repeater only cares that the region
+*transport code* matches to determine whether to forward or not. 
+
+17. **Repeaters should *not* carry all the regions for a state** That defeats the 
+purpose. It should only carry the regions it *should* forward traffic for. For 
+the example above, a repeater in the large Atlanta area should have:
+
+- **us-southeast**
+-- **us-ga**
+--- **us-ga-atl** 
+
+And perhaps some legacy regions like *#atlanta* or similar if needed.
+
