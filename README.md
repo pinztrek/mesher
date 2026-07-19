@@ -50,6 +50,8 @@ with airtime contention from unbounded flooding as usage increases.
 
    This issue has led to much confusion. Mapping/analysis tools have recommended IATA airport codes. This makes sense for their purposes. And it make make sense for *region scoping* structure in some cases. But **it is not a requirement for region scoping to operate**.
 
+There could be an advantage to aligning the mapping regions to the RF regions, but they serve different purposes. 
+
 6. **Repeater "Default Region" only impacts packets it _generates_**. Advertisements being a primary example.
 
 7. **Region Scoping is the primary method of dealing with airtime contention**. As deployments build out, traffic from adjacent states or metro areas start to compete with local. *Region scoping* allows users/repeaters to control whether traffic from adjacent regions should contend with local traffic.
@@ -119,19 +121,20 @@ either state/provice abreviation, then 3 digit ISO metro code. (But not all)
 
 Also, most stack them hierarchical with hyphens (recommended, ex: us-ga-atl)
 
-This is the dominant approach in the US. 
+This is the dominant approach in the US, with some using metro names and others 
+picking well known airport IATA codes. 
 
 But several US states just have their subregion names:
 - **pnw**
   - **or**
   - **wa**
-    - **sea*
+    - **sea**
     - **spokane**
 
 It's a name, not a route. So as long as it's unique in likely coverage areas it 
 probably does not matter
 
-21. **Repeaters should *not* carry all the regions for a state**. That defeats the purpose. It should only carry the regions it *should* forward traffic for. For the example above, a repeater in the large Atlanta area should have:
+21. **Repeaters should *not* carry all the regions for a state**. That defeats the purpose. It should only carry the regions it *should* forward traffic for. For the example above, a repeater in the metro Atlanta area should have:
 
     - **us-southeast**
       - **us-ga**
