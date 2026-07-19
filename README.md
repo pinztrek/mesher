@@ -36,13 +36,17 @@ with airtime contention from unbounded flooding as usage increases.
 ### Region Learnings & Observations
 
 1. **Region Scope *only* determines if a packet is forwarded by a repeater or not**
+If the region in a packet is defined in the repeater's region table, the packet is 
+forwarded. If not, it's dropped. Forwarding of *unscoped packets* is determined by a 
+separate setting. (See examples below)
+
 
 2. **Region name is not a route**
    - The region name is simply that: a unique identifier
    - All regions get hashed to 2 byte numbers for usage by the repeater in forward decisions. This hashed code is called the *transport code*, is present in packets and is a simple yes/no check. If the packet has a transport code in the table, it is forwarded.
    - Even though some region names *(us-ga-atl)* imply a hierarchy, it's for readability / administrative purposes only. **The repeater only checks to see if a packet matches the *transport code* when deciding whether to forward**
 
-3. **Region Scope is completely separate than #channels**. They do not have to align, and in fact in many cases you will want different *region scope* for different channels depending on purpose
+3. **Region Scope is entirely different than #channels**. They do not have to align, and in fact in many cases you will want different *region scope* for different channels depending on purpose
 
 4. **Companions receive all packets without regard to region scope**. Companion region settings (default or per channel) only impact what *region scope* is used for packets it sends.
 
