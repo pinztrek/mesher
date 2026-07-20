@@ -191,6 +191,7 @@ Depending on firmware level, configuring for the representative areas above woul
 region def us-southeast us-ga us-ga-atl|* atlanta
 region save
 region allowf *q
+```
 
     - the allowf enables unscoped flooding
     - the order of the regions implies hierarchy, with | starting a new top level
@@ -202,6 +203,7 @@ region put us-ga us-southeast
 region put us-ga-atl us-ga
 region put atlanta
 region save
+```
 
     - 15.x allows unscoped flooding by default
     - Parent / child relationship is specified in each line (the 2nd region listed is parent)
