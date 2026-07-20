@@ -97,7 +97,7 @@ There could be an advantage to aligning the mapping regions to the RF regions, b
 
 17. **Radio waves do not follow map boundaries**. *Region scoping* structure should factor in metro areas, rough state geographic "sub-regoins" (NE, NW, SE, etc). The purpose is to deal with airtime contention, so thought should be given to the mesh coverage zones more than county boundaries.
 
-18. **Metro areas can cross state boundaries**. In many cases a metro area will straddle a state boundary. One local example would be Chattanooga TN. Clearly would be part of *us-tn* region. But the reality is that it has many Alabama and Georgia suburban communities as part of it's metro area. Given that, **us-tn-cha** would be an approprite region as an example. **us** to indicate it's part of the US and make it unique. **chat** as the IATA 2 digit code for the local airport.
+18. **Metro areas can cross state boundaries**. In many cases a metro area will straddle a state boundary. One local example would be Chattanooga TN. Clearly would be part of *us-tn* region. But the reality is that it has many Alabama and Georgia suburban communities as part of it's metro area. Given that, **us-tn-cha** would be an approprite region as an example. **us** to indicate it's part of the US and make it unique. **cha** as the IATA 3 digit code for the local airport.
 
     Yet users in AL or GA could use it for traffic intended for the metro area.
 
