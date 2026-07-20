@@ -101,6 +101,10 @@ Which leads to the following point.
 
     The subregions exist to serve that particular area.
 
+16. **Walk before you Run**- It is recommended to continue allowing unscoped packets for some period after getting regions configured to allow all repeaters to be updated. i
+Most areas have found setting a timeline before discontinuing unscoped forwarding 
+helps speed up the transion. 
+
 17. **Radio waves do not follow map boundaries**- *Region scoping* structure should factor in metro areas, rough state geographic "sub-regoins" (NE, NW, SE, etc). The purpose is to deal with airtime contention, so thought should be given to the mesh coverage zones more than county boundaries.
 
 18. **Metro areas can cross state boundaries**- In many cases a metro area will straddle a state boundary. One local example would be Chattanooga TN. Clearly would be part of *us-tn* region. But the reality is that it has many Alabama and Georgia suburban communities as part of it's metro area. Given that, **us-tn-cha** would be an approprite region as an example. **us** to indicate it's part of the US and make it unique. **cha** as the IATA 3 digit code for the local airport.
