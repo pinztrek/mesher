@@ -146,7 +146,12 @@ probably does not matter
 
     And perhaps some legacy regions like *#atlanta* or similar if needed.
 
-22. **Region Scoping does not solve all problems**. Radio waves travel line of site. A high repeater near a state boundry can create issues as:
+22. **Including the us region is ok, but not needed** (Opinion) Given the core purpose
+is to mitigate airtime constraints, a country wide region covering an area like the US 
+is probably unneccessary and unneeded. More imporantly, it could make airtime issues 
+worse if misused. 
+
+23. **Region Scoping does not solve all problems**. Radio waves travel line of site. A high repeater near a state boundry can create issues as:
 
     - The tendancy is to allow traffic from both states
     - Are also typically heard far into the interior of both states
