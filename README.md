@@ -75,9 +75,9 @@ There could be an advantage to aligning the mapping regions to the RF regions, b
 
     Kieker is an exception, region support is much more visible and you can see if regions are in use on particular transmissions.
 
-11. **Defining region scope on firmware repeaters is cryptic**. Check your firmware for specific commands to configure regions
+11. **Defining region scope on firmware repeaters is cryptic**. Check your firmware for specific commands to configure regions (see example firmware commands below)
 
-12. **There are multiple approaches to defining regions for an area**. The wonderful thing about standards is that there are so many to choose from.
+12. **There are multiple approaches to defining regions for an area**. The wonderful thing about standards is that there are so many to choose from. (See example structures below)
 
     This is very true with *region scoping*. Thera are some well defined approaches used by many contries, at least at the top level. But they can diverge at lower levels based on local need.
 
@@ -87,7 +87,7 @@ There could be an advantage to aligning the mapping regions to the RF regions, b
 
 14. **Standard is better than better**. It is more important for a state or metro area to agree *and use* a consistent approach than it is to have the optimal subregion definition. Which leads to the following point.
 
-15. **It's critical to get State level in usage**. State level *region scoping* is needed now by many areas. It should be easy to agree on, the strong precent is something this form: **us-XX** (Where XX is the state abreviation).
+15. **It's critical to get State level in usage**. State level *region scoping* is needed now by many areas. It should be easy to agree on, the strong precedent is something this form: **us-XX** (Where XX is the state abreviation).
 
     It is very easy to get hung up on defining subregions, when the biggest airtime contention is at state level.
 
