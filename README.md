@@ -105,7 +105,7 @@ Which leads to the following point.
 to allow unscoped packets for some period after getting regions configured. This keeps 
 traffic flowing until all (most?) repeaters are updated with regions.  
 
-Most areas have found setting a timeline before discontinuing unscoped forwarding 
+    Most areas have found setting a timeline before discontinuing unscoped forwarding 
 helps speed up the transion. 
 
 17. **Radio waves do not follow map boundaries**- *Region scoping* structure should factor in metro areas, rough state geographic "sub-regoins" (NE, NW, SE, etc). The purpose is to deal with airtime contention, so thought should be given to the mesh coverage zones more than county boundaries.
