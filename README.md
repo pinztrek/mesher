@@ -85,7 +85,10 @@ There could be an advantage to aligning the mapping regions to the RF regions, b
 
 13. **Region structure needs consensus**. The region structure for your area should be a work of collaboration and should be as standard as possible while allowing/enabling functionality and managing airtime contention.
 
-14. **Standard is better than better**. It is more important for a state or metro area to agree *and use* a consistent approach than it is to have the optimal subregion definition. Which leads to the following point.
+14. ** *Standard* is better than *better* **. It is more important for a state or metro 
+area to agree at state level *and implement/use* a consistent approach than it is 
+to have the optimal subregion definition which never is agreed to. 
+Which leads to the following point.
 
 15. **It's critical to get State level in usage**. State level *region scoping* is needed now by many areas. It should be easy to agree on, the strong precedent is something this form: **us-XX** (Where XX is the state abreviation).
 
@@ -138,13 +141,21 @@ But several US states just have their subregion names:
 It's a name, not a route. So as long as it's unique in likely coverage areas it 
 probably does not matter
 
-21. **Repeaters should *not* carry all the regions for a state**. That defeats the purpose. It should only carry the regions it *should* forward traffic for. For the example above, a repeater in the metro Atlanta area should have:
+21. **Repeaters should *not* carry all the regions for a state**. That defeats the 
+purpose. It should only carry the regions it *should* forward traffic for. 
+
+For the example above, a repeater in the metro Atlanta area should have:
 
     - **us-southeast**
       - **us-ga**
         - **us-ga-atl**
 
     And perhaps some legacy regions like *#atlanta* or similar if needed.
+
+North East GA might have:
+    - **us-southeast**
+      - **us-ne**
+    (Plus any local subregions for cities, etc they might want)
 
 22. **Including the us region is ok, but not needed** (Opinion) Given the core purpose
 is to mitigate airtime constraints, a country wide region covering an area like the US 
@@ -162,18 +173,22 @@ ex: **us-va**
 
     This effectively funnels two or more states of traffic far into the interior of a state.
 
-    There are RF methods to mitigate, but just recognize that as traffic increases the scoping applied to high sites may need to change and become more restrictive.
+    There are RF methods to mitigate, but just recognize that as traffic increases the 
+scoping applied to high sites may need to change and become more restrictive.
 
 ## Typical firmware commands to set regions
 
-Depending on firmware level, configuring for the example metro area above would be:
+Depending on firmware level, configuring for representative area above would be:
 
+**For Metro Atlanta area (roughly defined as 30m radius of the capital):**
 **16.x**
 ```
 region def us-southeast us-ga us-ga-atl|* atlanta
 region save
 region allowf *q
 ```
+    - the allowf enables unscoped flooding
+    - the order of the regions implies hierarchy, with | starting a new top level
 
 **15.x**
 ```
@@ -183,3 +198,26 @@ region put us-ga-atl us-ga
 region put atlanta
 region save
 ```
+    - 15.x allows unscoped flooding by default
+    - Parent / child relationship is specified in each line (the 2nd region listed is parent)
+
+**For NorthEast Georgia region it would be:**
+**16.x**
+```
+region def us-southeast us-ga us-ga-ne
+region save
+region allowf *q
+```
+
+**15.x**
+```
+region put us-southeast
+region put us-ga us-southeast
+region put us-ga-ne us-ga
+region save
+```
+
+**Note:** the above configurations are recommendations in use for NE GA and the Metro 
+Atl area. Other GA regions would likely follow the format/approach. 
+
+And other meta regions or local subregions can be added as needed. 
