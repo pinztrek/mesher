@@ -8,7 +8,7 @@ on that topic.
 
 ## Why are Regions necessary?
 
-It is used as a traffic management method to allow traffic to flood across multiple areas, but also restrict unneeded traffic from flooding beyond its area of interest.
+It is used as a traffic management method to allow desired traffic to flood across multiple areas, but also restrict unneeded traffic from flooding beyond its area of interest.
 
 The implementation specifics can be confusing, there are overlapping terminology and 
 arcane configuration commands. This document's purpose is to try to help with some of
