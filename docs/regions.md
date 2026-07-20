@@ -1,34 +1,4 @@
-# mesher
-
-Coordinating MeshCore repeater deployment and sharing field experience.
-
-## Objective
-
-This repo purpose is the coordination point for planning, deploying, and tuning MeshCore
-repeaters, and for capturing what we learn along the way. Repeater placement,
-config, and behavior all affect the mesh for everyone on it, so the goal is to
-make deployment decisions visible and documented rather than tribal knowledge
-held by whoever installed a given node.
-
-## Airtime Contention
-
-LoRa airtime is a shared, finite resource — every repeater that rebroadcasts a
-packet consumes airtime that every other node in range can't use at the same
-moment. As repeater density increases, so does the risk of collisions, delayed
-delivery, and reduced effective throughput for everyone sharing the channel.
-
-It can very quickly reach a point where only 1/3 to 1/2 of packets are
-successfully received. 
-
-As airtime contention gets worse, it becomes harder for *"Listen before transmit"* to work, and packets the repeater is trying to forward cannot be sent, and will expire and dropped. 
-
-Users are often unaware, all they see are the packets from adjacent states (or local) which were lucky enough to get through.
-
-This is not a new issue, it's existed as long as computer networking and made worse by LORA's half duplex limitation which leads to collisions on the best of days. And is made 
-worse when *hidden terminal* impact occurs. (Stations which cannot hear another station
-trying to send to the same repeater)
-
-## Region Scoping
+# Region Scoping
 
 *Region Scoping* was designed into *meshcore* as a learning from *Meshtastic* to deal
 with airtime contention from unbounded flooding as usage increases. 
