@@ -193,8 +193,8 @@ region save
 region allowf *q
 ```
 
-    - the allowf enables unscoped flooding
-    - the order of the regions implies hierarchy, with | starting a new top level
+- the allowf enables unscoped flooding
+- the order of the regions implies hierarchy, with | starting a new top level
 
 **15.x**
 ```
@@ -205,8 +205,8 @@ region put atlanta
 region save
 ```
 
-    - 15.x allows unscoped flooding by default
-    - Parent / child relationship is specified in each line (the 2nd region listed is parent)
+- 15.x allows unscoped flooding by default
+- Parent / child relationship is specified in each line (the 2nd region listed is parent)
 
 **For NorthEast Georgia region it would be:**
 **16.x**
