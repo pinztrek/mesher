@@ -153,8 +153,10 @@ For the example above, a repeater in the metro Atlanta area should have:
     And perhaps some legacy regions like *#atlanta* or similar if needed.
 
 North East GA might have:
+
     - **us-southeast**
       - **us-ne**
+
     (Plus any local subregions for cities, etc they might want)
 
 22. **Including the us region is ok, but not needed** (Opinion) Given the core purpose
