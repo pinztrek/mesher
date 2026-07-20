@@ -102,7 +102,8 @@ Which leads to the following point.
     The subregions exist to serve that particular area.
 
 16. **Allow unscoped for some period to ease transition**- Good practice is 
-to allow unscoped packets for some period after getting regions configured. This allow 
+to allow unscoped packets for some period after getting regions configured. This keeps 
+traffic flowing until all (most?) repeaters are updated with regions.  
 
 Most areas have found setting a timeline before discontinuing unscoped forwarding 
 helps speed up the transion. 
