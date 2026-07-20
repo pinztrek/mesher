@@ -1,9 +1,31 @@
 # Region Scoping
 
-*Region Scoping* was designed into *meshcore* as a learning from *Meshtastic* to deal
-with airtime contention from unbounded flooding as usage increases. 
+*Region Scoping* was designed into *Meshcore* as a learning from *Meshtastic* to deal
+with [airtime contention](docs/congestion.md) from unbounded flooding as usage increases. 
 
-### Region Learnings & Observations
+See the [Congestion & Airtime Contention Guide](docs/congestion.md) for more information
+on that topic.
+
+## Why are Regions necessary?
+
+It is used as a traffic management method to allow traffic to flood across multiple areas, but also restrict unneeded traffic from flooding beyond its area of interest.
+
+The implementation specifics can be confusing, there are overlapping terminology and 
+arcane configuration commands. This document's purpose is to try to help with some of
+with the key areas of confusion and common misunderstanding.
+
+Most states are reaching *Meshcore* traffic levels and coverage that this *Region 
+Scoping* is becoming a hot topic. 
+
+There are many sites which document *what* their Region configuration is, but not
+exactly why. Yet there are some defacto standards across the US and other countries. 
+And also many counter examples. 
+
+iThis document is not focused on how to use regions in other areas, more to 
+help folks understand what *Meshcore Regions* are, how they work, and some good practice learnings
+from other implementations if you need to implement regions in your area. 
+
+## Region Learnings & Observations
 
 1. **Region Scope *only* determines if a packet is forwarded by a repeater or not**
 If the region in a packet is defined in the repeater's region table, the packet is 
