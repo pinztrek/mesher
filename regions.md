@@ -28,8 +28,6 @@ This is not a new issue, it's existed as long as computer networking and made wo
 worse when *hidden terminal* impact occurs. (Stations which cannot hear another station
 trying to send to the same repeater)
 
-{! regions.md !}
-
 ## Region Scoping
 
 *Region Scoping* was designed into *meshcore* as a learning from *Meshtastic* to deal
