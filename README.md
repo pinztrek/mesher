@@ -75,7 +75,7 @@ There could be an advantage to aligning the mapping regions to the RF regions, b
 
     Kieker is an exception, region support is much more visible and you can see if regions are in use on particular transmissions.
 
-Most clients allow you to add regions when you try to scope a #channel to a region. Then you can select or unselect as needed. 
+    Most clients allow you to add regions when you try to scope a #channel to a region. Then you can select or unselect as needed. 
 *The complicated and arcane region structures are not needed for companions!*
 
 11. **Defining region scope on firmware repeaters is cryptic**. Check your firmware for specific commands to configure regions (see example firmware commands below)
