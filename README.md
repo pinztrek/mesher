@@ -180,7 +180,7 @@ scoping applied to high sites may need to change and become more restrictive.
 
 ## Typical firmware commands to set regions
 
-Depending on firmware level, configuring for representative area above would be:
+Depending on firmware level, configuring for the representative areas above would be:
 
 **For Metro Atlanta area (roughly defined as 30m radius of the capital):**
 **16.x**
