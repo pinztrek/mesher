@@ -101,7 +101,9 @@ Which leads to the following point.
 
     The subregions exist to serve that particular area.
 
-16. **Walk before you Run**- It is recommended to continue allowing unscoped packets for some period after getting regions configured to allow all repeaters to be updated. i
+16. **Allow unscoped for some period to ease transition**- Good practice is 
+to allow unscoped packets for some period after getting regions configured. This allow 
+
 Most areas have found setting a timeline before discontinuing unscoped forwarding 
 helps speed up the transion. 
 
