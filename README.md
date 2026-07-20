@@ -151,6 +151,10 @@ is to mitigate airtime constraints, a country wide region covering an area like 
 is probably unneccessary and unneeded. More imporantly, it could make airtime issues 
 worse if misused. 
 
+Note that including the us as the start of the region name is fine and even recommended.
+ex: **us-va**
+
+
 23. **Region Scoping does not solve all problems**. Radio waves travel line of site. A high repeater near a state boundry can create issues as:
 
     - The tendancy is to allow traffic from both states
