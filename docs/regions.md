@@ -157,7 +157,8 @@ For the example above, a repeater in the metro Atlanta area should have:
 North East GA might have:
 
     - **us-southeast**
-      - **us-ne**
+      - **us-ga**
+        - **us-ga-ne**
 
     (Plus any local subregions for cities, etc they might want)
 
