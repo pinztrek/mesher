@@ -130,8 +130,7 @@ either state/provice abreviation, then 3 digit ISO metro code. (But not all)
 
     Also, most stack them hierarchical with hyphens (recommended, ex: us-ga-atl)
 
-    This is the dominant approach in the US, with some using metro names and others 
-picking well known airport IATA codes. 
+    This is the dominant approach in the US, with some using metro names and others picking well known airport IATA codes. 
 
     But several US states just have their subregion names:
     - pnw
@@ -140,8 +139,7 @@ picking well known airport IATA codes.
         - sea
         - spokane
 
-    It's a name, not a route. So as long as it's unique in likely coverage areas it 
-probably does not matter
+    It's a name, not a route. So as long as it's unique in likely coverage areas it probably does not matter
 
 21. **Repeaters should *not* carry all the regions for a state**- That defeats the 
 purpose. It should only carry the regions it *should* forward traffic for. 
@@ -180,6 +178,8 @@ ex: **us-va**
 
     There are RF methods to mitigate, but just recognize that as traffic increases the 
 scoping applied to high sites may need to change and become more restrictive.
+
+---
 
 ## Typical firmware commands to set regions
 
