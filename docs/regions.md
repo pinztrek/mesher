@@ -112,35 +112,35 @@ helps speed up the transion.
 
 20. **simple/shorter is good**- Region configurations often have to be hand typed in a cryptic format on phones. Likewise, there is a byte limit on the length of the string returned by the **discover regions** meshcore operation.
 
-## Example Region Structures
-- us (OR)
-- us-southeast
-  - us-ga
-    - us-ga-nw
-    - us-ga-ne
-    - us-ga-sw
-    - us-ga-se
-    - us-ga-atl
+### Example Region Structures
+    - us (OR)
+    - us-southeast
+      - us-ga
+        - us-ga-nw
+        - us-ga-ne
+        - us-ga-sw
+        - us-ga-se
+        - us-ga-atl
 
-Again, the hierarchy is to help humans. The repeater only cares that the region
+    Again, the hierarchy is to help humans. The repeater only cares that the region
 *transport code* matches to determine whether to forward or not. 
 
-Most countries with advanced *Meshcore* deployments have used country code, then 
+    Most countries with advanced *Meshcore* deployments have used country code, then 
 either state/provice abreviation, then 3 digit ISO metro code. (But not all)
 
-Also, most stack them hierarchical with hyphens (recommended, ex: us-ga-atl)
+    Also, most stack them hierarchical with hyphens (recommended, ex: us-ga-atl)
 
-This is the dominant approach in the US, with some using metro names and others 
+    This is the dominant approach in the US, with some using metro names and others 
 picking well known airport IATA codes. 
 
-But several US states just have their subregion names:
-- pnw
-  - or
-  - wa
-    - sea
-    - spokane
+    But several US states just have their subregion names:
+    - pnw
+      - or
+      - wa
+        - sea
+        - spokane
 
-It's a name, not a route. So as long as it's unique in likely coverage areas it 
+    It's a name, not a route. So as long as it's unique in likely coverage areas it 
 probably does not matter
 
 21. **Repeaters should *not* carry all the regions for a state**- That defeats the 
