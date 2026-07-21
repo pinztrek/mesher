@@ -113,14 +113,14 @@ helps speed up the transion.
 20. **simple/shorter is good**- Region configurations often have to be hand typed in a cryptic format on phones. Likewise, there is a byte limit on the length of the string returned by the **discover regions** meshcore operation.
 
 ## Example Region Structures
-- **us** (OR)
-- **us-southeast**
-  - **us-ga**
-    - **us-ga-nw**
-    - **us-ga-ne**
-    - **us-ga-sw**
-    - **us-ga-se**
-    - **us-ga-atl**
+- us (OR)
+- us-southeast
+  - us-ga
+    - us-ga-nw
+    - us-ga-ne
+    - us-ga-sw
+    - us-ga-se
+    - us-ga-atl
 
 Again, the hierarchy is to help humans. The repeater only cares that the region
 *transport code* matches to determine whether to forward or not. 
@@ -134,11 +134,11 @@ This is the dominant approach in the US, with some using metro names and others
 picking well known airport IATA codes. 
 
 But several US states just have their subregion names:
-- **pnw**
-  - **or**
-  - **wa**
-    - **sea**
-    - **spokane**
+- pnw
+  - or
+  - wa
+    - sea
+    - spokane
 
 It's a name, not a route. So as long as it's unique in likely coverage areas it 
 probably does not matter
@@ -148,17 +148,17 @@ purpose. It should only carry the regions it *should* forward traffic for.
 
 For the example above, a repeater in the metro Atlanta area should have:
 
-    - **us-southeast**
-      - **us-ga**
-        - **us-ga-atl**
+    - us-southeast
+      - us-ga
+        - us-ga-atl
 
     And perhaps some legacy regions like *#atlanta* or similar if needed.
 
 North East GA might have:
 
-    - **us-southeast**
-      - **us-ga**
-        - **us-ga-ne**
+    - us-southeast
+      - us-ga
+        - us-ga-ne
 
     (Plus any local subregions for cities, etc they might want)
 
