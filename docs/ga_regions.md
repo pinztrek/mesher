@@ -1,5 +1,5 @@
-| *Section 1* | Section 2 |
+| NorthEast GA | NorthWest GA |
 | :--- | :--- |
 | `print("Hello")` | `console.log("Hello");` |
-| `more stuff`| `more stuff|
+| `more stuff`| `more stuff`|
 | :--- | :--- |
