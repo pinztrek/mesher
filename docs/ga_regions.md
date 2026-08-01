@@ -47,7 +47,7 @@ us-southeast
 
 ## Notes
 - Remember you use regions to *keep traffic from leaking out* rather then to try to *route traffic out of a zone*. (regions are filters, not routes)
-   - Most traffic is fine for us-ga, that should be your default for the repeater and companions
+   - Most traffic is fine for *us-ga*, that should be your default for the repeater and companions
    - Use more narrowly scoped regions per channel or user as needed to keep traffic local
    - If you need to traverse your zone to another state, use *us-southeast*. You do not need to add that state's region!
 - Border cases can be handled via IATA type metro area like the proposed us-ga-ags for Augusta. Or a possible us-tn-cha for Chattanooga tri-state area. 
