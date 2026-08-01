@@ -2,20 +2,20 @@
 
 ## Design Objectives
 ### Focus on traffic management
-   1. Core issue is to manage flooding leakage that are creating issues with adjacent
+   - Core issue is to manage flooding leakage that is creating issues with adjacent
    zones and states
 
 ### Keep it as simple as possible
 
-   1. Intuitive zones, no map or rules needed
-   2. Minimal number of zones to allow interstate traffic and restrict to local
-   3. Minimal of commands to execute on repeaters to set up regions
+   - Intuitive zones, no map or rules needed
+   - Minimal number of zones to allow interstate traffic and restrict to local
+   - Minimal of commands to execute on repeaters to set up regions
 
 ### Align to defacto standard 
-   3. us-xx-yy* is the international standard and adopted by many US states
+   - us-xx-yy* is the international standard and adopted by many US states
 
 ### Avoid future name duplication with other states
-   4. The us-xx-yy avoids potential name clashes with other countries, or subregions 
+   - The us-xx-yy avoids potential name clashes with other countries, or subregions 
    in adjacent states. 
 
 ## Structure
