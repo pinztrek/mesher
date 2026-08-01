@@ -2,6 +2,14 @@
 
 ## Design Objectives
 
+## Structure
+
+```
+us-southeast
+   us-ga
+      us-ga-xx (quadrant zone) or us-ga-xxx (iata metro area)
+```
+
 ## Timeframe
 
 ## Configuration Commands
