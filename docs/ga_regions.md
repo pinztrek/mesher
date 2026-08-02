@@ -18,7 +18,7 @@
    - The us-xx-yy avoids potential name clashes with other countries, or subregions 
    in adjacent states. 
 
-See: [GA Meshcore Region Scoping Guide](docs/regions.md) for *why* and *how* regions work.
+See: [GA Meshcore Region Scoping Guide](./regions.md) for *why* and *how* regions work.
 
 ## Structure
 
