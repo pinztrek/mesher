@@ -28,6 +28,21 @@ us-southeast
 
 ## Timeframe
 
+### Plan/Educate (Started)
+- obtain consensus on *us-ga* + *us-southeast* (complete)
+- document known subregions
+- meshmaper region set to use *us-ga*
+- established contact with key hi site ops
+- get the word out to users
+
+### Run in Parallel Oct 1
+- key high sites have *us-ga*, *us-southeast*, and their subregion configured 
+- limit unscoped flooding to 5-6 hops
+- User education push
+
+### Complete Cutover Jan 1
+- forwarding of unscoped disabled
+
 ## Configuration Commands
 
 | NorthEast GA | NorthWest GA (proposed)|
