@@ -1,5 +1,11 @@
 # Georgia Meshcore Region Information
 
+Deploying regions on GA repeaters is a necessary next step to keep meshcore reliable. 
+
+Repeater ops need to plan to implement per this document.
+
+Users (*companion nodes*) may want to become familiar, but no immediate action needed till late 2026.
+
 ## Design Objectives
 ### Focus on traffic management
    - Core issue is to manage flooding leakage that is creating issues with adjacent
