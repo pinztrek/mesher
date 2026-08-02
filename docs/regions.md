@@ -1,7 +1,9 @@
+**[Click here to jump to Georgia Specifics](./ga_regions.md)**
+
 # Region Scoping
 
 *Region Scoping* was designed into *Meshcore* as a learning from *Meshtastic* to deal
-with [airtime contention](docs/congestion.md) from unbounded flooding as usage increases. 
+with [airtime contention](./congestion.md) from unbounded flooding as usage increases. 
 
 See the [Congestion & Airtime Contention Guide](docs/congestion.md) for more information
 on that topic.
