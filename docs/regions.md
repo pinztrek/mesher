@@ -37,8 +37,15 @@ separate setting. (See examples below)
 
 2. **Region name is not a route**
    - The region name is simply that: a unique identifier
-   - All regions get hashed to 2 byte numbers for usage by the repeater in forward decisions. This hashed code is called the *transport code*, is present in packets and is a simple yes/no check. If the packet has a transport code in the table, it is forwarded.
-   - Even though some region names *(us-ga-atl)* imply a hierarchy, it's for readability / administrative purposes only. **The repeater only checks to see if a packet matches the *transport code* when deciding whether to forward**
+   - All region names configured into a repeater get hashed to binary strings (region key) and are stored in a table for future flooding decisions.  
+
+     Upon receipt of a packet, that table is walked, a test *transport code* is calculated using each key with the packet data and compared against the *transport code* in the packet as a simple yes/no check. 
+
+     If that table walk and comparison of each calculated *transport code* results in a match, the packet is forwarded.
+
+     Note the region name or region key does not flow in the packet, only the *transport code*.
+     
+   - Even though some region names *(us-ga-atl)* imply a hierarchy, it's for readability / administrative purposes only. **The repeater only checks to see if the stored *region keys* result in a matching *transport code* when deciding whether to forward**
 
 3. **Region Scope is entirely different than #channels**- They do not have to align, and in fact in many cases you will want different *region scope* for different channels depending on purpose
 
