@@ -8,6 +8,8 @@ with [airtime contention](./congestion.md) from unbounded flooding as usage incr
 See the [Congestion & Airtime Contention Guide](docs/congestion.md) for more information
 on that topic.
 
+This document is operationally focused and is not intended as a full technical explanation of meshcore internals. As such, the internals are treated as a black box and the external behavior/implication is the focus. Both code reading to understand internal behavior and live testing was used to document how region scoping works in a deployed environment.
+
 ## Why are Regions necessary?
 
 It is used as a traffic management method to allow desired traffic to flood across multiple areas, but also restrict unneeded traffic from flooding beyond its area of interest.
@@ -36,14 +38,14 @@ separate setting. (See examples below)
 
 
 2. **Region name is not a route**
-   - The region name is simply that: a unique identifier
+   - The region name is simply that: a unique identifier assigned to a transmission to limit how far it floods
    - All region names configured into a repeater get hashed to binary strings (region key) and are stored in a table for future flooding decisions.  
 
      Upon receipt of a packet, that table is walked, a test *transport code* is calculated using each key with the packet data and compared against the *transport code* in the packet as a simple yes/no check. 
 
      If that table walk and comparison of each calculated *transport code* results in a match, the packet is forwarded.
 
-     Note the region name or region key does not flow in the packet, only the *transport code*. Likewise the  stored *region key* is the same length regardless of the length of the region name.
+     Note: Neither the region name or region key flows in the packet, only the *transport code*. Likewise the stored *region key* is the same length regardless of the length of the region name.
      
    - Even though some region names *(us-ga-atl)* imply a hierarchy, it's for readability / administrative purposes only. **The repeater only checks to see if the stored *region keys* result in a matching *transport code* when deciding whether to forward**
 
