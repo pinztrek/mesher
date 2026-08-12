@@ -23,7 +23,7 @@ There are many sites which document *what* their Region configuration is, but no
 exactly why. Yet there are some defacto standards across the US and other countries. 
 And also many counter examples. 
 
-iThis document is not focused on how to use regions in other areas, more to 
+This document is not focused on how to use regions in other areas, more to 
 help folks understand what *Meshcore Regions* are, how they work, and some good practice learnings
 from other implementations if you need to implement regions in your area. 
 
@@ -43,7 +43,7 @@ separate setting. (See examples below)
 
      If that table walk and comparison of each calculated *transport code* results in a match, the packet is forwarded.
 
-     Note the region name or region key does not flow in the packet, only the *transport code*.
+     Note the region name or region key does not flow in the packet, only the *transport code*. Likewise the  stored *region key* is the same length regardless of the length of the region name.
      
    - Even though some region names *(us-ga-atl)* imply a hierarchy, it's for readability / administrative purposes only. **The repeater only checks to see if the stored *region keys* result in a matching *transport code* when deciding whether to forward**
 
