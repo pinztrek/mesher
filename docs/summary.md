@@ -6,7 +6,7 @@ In discussions we constantly see comments about *"using regions to extend traffi
 
 *Regions* were implemented as a **traffic containment** tool. Specifically, to prevent traffic from spreading from it's relevance point. 
 
-## Some local traffic becomes nuisance outside of it's local area
+## Some local traffic becomes a nuisance outside of it's local area
 
 Much traffic that is useful/needed locally is not useful outside of the local area. And is often a volume nuisance source. 
 A prime example is **#wardriving** or **#test**. Both are valid tools and needed locallay. But outside of the local area they are
@@ -16,6 +16,10 @@ So repeater region configs do not **extend** coverage, they **contain** traffic.
 
 When a repeater carries 2 adjacent regions/subregions, it bypasses that containment, pushing the airtime/nuisance problem further out of
 the targeted subregion. 
+
+## But other traffic is of relevance outside of it's local area
+
+Chat traffic is often topical, and of interest outside of its local area. And as such, needs to traverse regions. 
 
 ## Trans region traffic is controlled by scoping the traffic 
 
