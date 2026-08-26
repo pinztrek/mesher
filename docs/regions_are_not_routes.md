@@ -23,9 +23,12 @@ Chat traffic is often topical, and of interest outside of its local area. And as
 
 ## Trans region traffic is controlled by scoping the traffic 
 
-So how does a **user** get traffic out of their region? They do it by scoping their transmission more broadly. This is ok as:
+So how does a **user** get traffic out of their region? **They do it by scoping their transmission more broadly**. That is ok as:
 - Chat traffic is a tiny percentage of overall traffic
-- And Chat traffic has relevance outside of narrow subregions
+
+And
+
+- Chat traffic has relevance outside of narrow subregions
 
 By setting the broader scope (*us-southeast*, *us-XX* state level, etc) that traffic is traverses the multiple regions. 
 
