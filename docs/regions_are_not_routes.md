@@ -32,7 +32,7 @@ And
 
 By setting the broader scope (*us-southeast*, *us-XX* state level, etc) that traffic is traverses the multiple regions. 
 
-*So there is no need for the repeater op to compromise the containment value by bridging adjacent regions.* 
+**So there is no need for the repeater op to compromise the containment value by bridging adjacent regions.** 
 Instead, it's a user education issue, but also starts with a simple & coherent region structure. Ex: this Georgia example
 - *us-southeast* (Multi-state. Could also be *us*). 
 - *us-ga* the entire state (default for most traffic)
