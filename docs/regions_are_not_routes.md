@@ -1,8 +1,8 @@
 # Regions are not Routes
 
-In discussions we constantly see comments about *"using regions to extend traffic"* or similar. Usually as justification for bridging adjacent sub-regions by carrying both. 
+In discussions we constantly see comments about *"setting repeaters to multiple regions to extend traffic outside of their local area"* or similar. Usually as justification for bridging adjacent sub-regions by carrying both. 
 
-*Which is exactly backwards from what regions perform!* 
+**Which is exactly backwards from what meshcore regions actually do!** 
 
 *Regions* were implemented as a **traffic containment** tool. Specifically, to prevent traffic from spreading from it's relevance point. 
 
