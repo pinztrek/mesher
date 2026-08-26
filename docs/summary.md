@@ -1,4 +1,4 @@
-#Regions are not Routes
+# Regions are not Routes
 
 In discussions we constantly see comments about *"using regions to extend traffic"* or similar. Usually as justification for bridging adjacent sub-regions by carrying both. 
 
