@@ -37,7 +37,7 @@ Instead, it's a user education issue, but also starts with a simple & coherent r
 
 Default companion scope would be *us-ga*. Appropriate for most chat traffic, etc. 
 
-*#public* or *#hamradio* or similar could be scoped more broadly. *us-southeast* or *us*. Flood as far as it can. 
+*#public* or *#hamradio* or similar could be scoped more broadly. Set scope for that *#channel* to *us-southeast* or *us*. Flood as far as it can. 
 
 But *#wardriving*, *#bot*, *#test*, etc should be scoped as local as possible. Does not make sense to allow to flood even 
 state level. Use a sub-state subregion like *us-ga-ne* to keep local. 
