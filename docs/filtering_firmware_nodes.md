@@ -104,4 +104,5 @@ set flood.rule type=any hops=9+ in=none drop
 
   `set flood.rule type=any channel=* in=region:us-se region=us-southeast`
 
-  *The above remapping examples assumes the regions exist already*
+  *The above remapping examples assumes the regions exist already*. 
+  For the case of incorrect regions, they need to exist, but your rule will remap them if encountered.
