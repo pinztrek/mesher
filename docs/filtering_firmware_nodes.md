@@ -79,6 +79,7 @@ set flood.rule type=any hops=9+ in=none drop
   `flood.max.advert 32`
 
 - Don't forward unscoped nuisance groups
+
   `set flood.channel.scope.require #wardriving`<br>
   `set flood.channel.scope.require #bot`<br>
   `set flood.channel.scope.require #test`
