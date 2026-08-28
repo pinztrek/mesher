@@ -48,12 +48,12 @@ Should behave just like a normal meshcore 1.17'ish repeater.
 - Follow the instructions in the [*Flood Filtering* doc](https://github.com/mikecarper/MeshCore/blob/keymindCascade/docs/flood_filtering.md)
 to check/set recommended flooding configurations. (See below, may need to tune for your area)
 
-## Example Region Scope Remapping
+## Example Region Scope Filtering & Remapping commands
 
 ### Map one region scope to another prior to forwarding
 `set flood.channel.scope us-se us-southeast`
 
-## Example Require scope for particular channels
-### Map one region scope to another prior to forwarding
+### Example Require scope for particular channels
+
 `set flood.channel.scope.require #wardriving`
 `set flood.channel.scope.require #bot`
