@@ -59,7 +59,7 @@ to check/set recommended flooding configurations. (See below, may need to tune f
 ## Example Region Scope Filtering & Remapping commands
 
 ### Map one region scope to another prior to forwarding
-`set flood.channel.scope us-se us-southeast`
+`set flood.rule type=any channel=* in=region:us-se region=us-southeast`
 
 ### Example Require scope for particular channels
 
@@ -97,6 +97,11 @@ set flood.rule type=any hops=9+ in=none drop
   `set flood.rule type=any hops=9+ in=none drop`
 
 - Remap *us-ga* #wardriving to *us-ga-atl* to limit spread
+
   `set flood.rule type=any channel=#wardriving in=scope:us-ga region=us-ga-atl`
 
-  *Assumes the regions exist already*
+- Remap incorrect *us-se* to *us-southeast* (all channels)
+
+  `set flood.rule type=any channel=* in=region:us-se region=us-southeast`
+
+  *The above remapping examples assumes the regions exist already*
