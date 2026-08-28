@@ -77,9 +77,6 @@ to check/set recommended flooding configurations. (See below, may need to tune f
 ### Drop high hop count if unscoped
 `set flood.rule type=any hops=9+ in=none drop`
 
-### Drop high hop count 1 byte path (loop risk)
-set flood.rule type=any hops=9+ in=none drop
-
 ## Sample key settings for a repeater in us-ga-atl
 
 - Allow generous flood max for scoped traffic as it will self limit
