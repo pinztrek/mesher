@@ -35,7 +35,7 @@ Intro
 ## Download and Install
 
 - - Go to Mike Carper's github for his Keymind fork: https://github.com/mikecarper/MeshCore/tree/keymindCascade
-- - Click the [*releases* link: https://github.com/mikecarper/MeshCore/releases](*releases* link https://github.com/mikecarper/MeshCore/releases) in the right sidebar
+- - Click the [*releases* link](https://github.com/mikecarper/MeshCore/releases)(https://github.com/mikecarper/MeshCore/releases) in the right sidebar
 - - Download the *firmware picker* html file. [*1.17.14 firmware picker*](https://github.com/mikecarper/MeshCore/releases/download/v1.17.1.4-halo-keymind-cascade-dev-4d5ccbdd/FIRMWARE-PICKER-1.17.1.4.html)
 - - Open the *firmware picker* html file
 - Select your hardware type, role (typically repeater), and install file type (often uf2 for nrf, etc)
