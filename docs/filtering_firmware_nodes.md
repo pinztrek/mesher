@@ -12,7 +12,7 @@ have helped significantly by reducing forwarding of packets that are not relevan
 
 ## Key additions: Keymind + Halo + Cascade
 
-  - **Keymind** — a rewritten flood-forwarding/filtering engine (file format "FPF7"). Replaces the old
+  - **Keymind** — a rewritten flood-forwarding/filtering engine. Replaces the old
   simple flood.filter drop-list with a rule table where each row can match on payload type, hop
   count, authenticated channel, source-path prefix, and the packet's original scope/region, then
   take an action: drop, rewrite/force a transport scope (to a real region or an arbitrary regionless
