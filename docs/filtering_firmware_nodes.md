@@ -60,3 +60,35 @@ to check/set recommended flooding configurations. (See below, may need to tune f
 `set flood.channel.scope.require #bot`
 
 `set flood.channel.scope.require #test`
+
+### Drop high hop count if unscoped
+`set flood.rule type=any hops=9+ in=none drop`
+
+### Drop high hop count 1 byte path (loop risk)
+set flood.rule type=any hops=9+ in=none drop
+
+## Sample key settings for a repeater in us-ga-atl
+
+- Allow generous flood max for scoped traffic as it will self limit
+  `set flood.max 64`
+
+- Less generous flood max for unscoped traffic independent of path width
+  `set flood.max.unscoped 32`
+
+- Generous flood max for adverts
+  `flood.max.advert 32`
+
+- Don't forward unscoped nuisance groups
+  `set flood.channel.scope.require #wardriving`
+
+  `set flood.channel.scope.require #bot`
+
+  `set flood.channel.scope.require #test`
+
+- Drop high hop count if unscoped
+  `set flood.rule type=any hops=9+ in=none drop`
+
+- Remap *us-ga* #wardriving to *us-ga-atl* to limit spread
+  `set flood.rule type=any channel=#wardriving in=scope:us-ga region=us-ga-atl`
+
+  *Assumes the regions exist already*
