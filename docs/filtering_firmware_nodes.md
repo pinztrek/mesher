@@ -55,5 +55,5 @@ to check/set recommended flooding configurations. (See below, may need to tune f
 
 ### Example Require scope for particular channels
 
-`set flood.channel.scope.require #wardriving`
-`set flood.channel.scope.require #bot`
+```set flood.channel.scope.require #wardriving```
+```set flood.channel.scope.require #bot```
