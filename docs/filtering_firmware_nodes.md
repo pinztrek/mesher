@@ -82,6 +82,12 @@ to check/set recommended flooding configurations. (See below, may need to tune f
 
 ## Sample key settings for a repeater in us-ga-atl
 
+The following commands would be a good starting  point for a repeater to help reduce 
+non-relevant forwarding similar to the Openhop approach we are using. 
+
+You'll need to update the regions for your area. The example is for the *us-ga-atl*
+sub-region. 
+
 - Allow generous flood max for scoped traffic as it will self limit
   `set flood.max 64`
 
