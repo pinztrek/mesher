@@ -1,8 +1,16 @@
 # Firmware node policies using Keymind/halo
 
-Intro
+High site meshcore repeaters are inevitably hit with airtime contention issues as the mesh grows. 
+*Region scoping* can help reduce impact somewhat, but is not really granular enough. 
 
-## Keymind + Halo + Cascade
+[Mike Carper](https://github.com/mikecarper) has forked meshcore and extended it's capability 
+to allow various flood mgt policies & rewriting.
+
+*The intent / scope of this document is to help a repeater op install and configure commonly 
+used flood mth configs*. The example policy settings are learnings from openhop where they 
+have helped significantly by reducing forwarding of packets that are not relevant to local users. 
+
+## Key additions: Keymind + Halo + Cascade
 
   - **Keymind** — a rewritten flood-forwarding/filtering engine (file format "FPF7"). Replaces the old
   simple flood.filter drop-list with a rule table where each row can match on payload type, hop
