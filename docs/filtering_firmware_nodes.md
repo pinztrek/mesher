@@ -9,8 +9,10 @@ to allow various flood mgt policies & rewriting.
 *The intent / scope of this document is to help a repeater op install and configure commonly 
 used flood mth configs*. The example policy settings are learnings from openhop where they 
 have helped significantly by reducing forwarding of packets that are not relevant to local users. 
+For full documentation and info please refer to the detailed configuration pages mentioned below. 
 
 ## Key additions: Keymind + Halo + Cascade
+The release firmware typically has three extensions included:
 
   - **Keymind** — a rewritten flood-forwarding/filtering engine. Replaces the old
   simple flood.filter drop-list with a rule table where each row can match on payload type, hop
