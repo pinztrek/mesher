@@ -1,4 +1,4 @@
-# Firmware node policies using Keymind/halo
+# Firmware node policies using Keymind/Halo
 
 High site meshcore repeaters are inevitably hit with airtime contention issues as the mesh grows. 
 *Region scoping* can help reduce impact somewhat, but is not really granular enough. 
