@@ -39,10 +39,8 @@ Intro
 - - Download the *firmware picker* html file. (*1.17.14 firmware picker*)[https://github.com/mikecarper/MeshCore/releases/download/v1.17.1.4-halo-keymind-cascade-dev-4d5ccbdd/FIRMWARE-PICKER-1.17.1.4.html]
 - - Open the *firmware picker* html file
 - Select your hardware type, role (typically repeater), and install file type (often uf2 for nrf, etc)
-- Use your normal install process to load the firmware onto your device. You can use the
-  (meshcore flasher)[https://flasher.meshcore.io/] page or drag and drop as appropriate for your device
-- Use the *repeater setup* or *console* mode on the 
-(meshcore flasher)[https://flasher.meshcore.io/] page or similar to setup the repeater and access the console.
+- Use your normal install process to load the firmware onto your device. You can use the (meshcore flasher)[https://flasher.meshcore.io/] page or drag and drop as appropriate for your device
+- Use the *repeater setup* or *console* mode on the (https://flasher.meshcore.io/)[https://flasher.meshcore.io/] page or similar to setup the repeater and access the console.
 Should behave just like a normal meshcore 1.17'ish repeater.
 
 ## Check basic flood settings
