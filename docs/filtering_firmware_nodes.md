@@ -2,6 +2,9 @@
 
 High site meshcore repeaters are inevitably hit with airtime contention issues as the mesh grows. 
 *Region scoping* can help reduce impact somewhat, but is not really granular enough. 
+Other tools like *OpenHop* have implemented policy based forwarding decisions to help manage 
+which traffic should be forwarded vs silently dropped as not-relevent and thus noise contributing to 
+airtime challenges. 
 
 [Mike Carper](https://github.com/mikecarper) has forked meshcore and extended it's capability 
 to allow various flood mgt policies & rewriting.
