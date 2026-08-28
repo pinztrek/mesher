@@ -35,17 +35,17 @@ Intro
 ## Download and Install
 
 - - Go to Mike Carper's github for his Keymind fork: https://github.com/mikecarper/MeshCore/tree/keymindCascade
-- - Click the (*releases* link)[https://github.com/mikecarper/MeshCore/releases] in the right sidebar
-- - Download the *firmware picker* html file. (*1.17.14 firmware picker*)[https://github.com/mikecarper/MeshCore/releases/download/v1.17.1.4-halo-keymind-cascade-dev-4d5ccbdd/FIRMWARE-PICKER-1.17.1.4.html]
+- - Click the [*releases* link: https://github.com/mikecarper/MeshCore/releases](*releases* link https://github.com/mikecarper/MeshCore/releases) in the right sidebar
+- - Download the *firmware picker* html file. [*1.17.14 firmware picker*](https://github.com/mikecarper/MeshCore/releases/download/v1.17.1.4-halo-keymind-cascade-dev-4d5ccbdd/FIRMWARE-PICKER-1.17.1.4.html)
 - - Open the *firmware picker* html file
 - Select your hardware type, role (typically repeater), and install file type (often uf2 for nrf, etc)
-- Use your normal install process to load the firmware onto your device. You can use the (meshcore flasher)[https://flasher.meshcore.io/] page or drag and drop as appropriate for your device
-- Use the *repeater setup* or *console* mode on the (https://flasher.meshcore.io/)[https://flasher.meshcore.io/] page or similar to setup the repeater and access the console.
+- Use your normal install process to load the firmware onto your device. You can use the (https://flasher.meshcore.io/) page or drag and drop as appropriate for your device
+- Use the *repeater setup* or *console* mode on the (https://flasher.meshcore.io/) page or similar to setup the repeater and access the console.
 Should behave just like a normal meshcore 1.17'ish repeater.
 
 ## Check basic flood settings
 
-- Follow the instructions in the (*Flood Filtering* doc)[https://github.com/mikecarper/MeshCore/blob/keymindCascade/docs/flood_filtering.md]
+- Follow the instructions in the [*Flood Filtering* doc](https://github.com/mikecarper/MeshCore/blob/keymindCascade/docs/flood_filtering.md)
 to check/set recommended flooding configurations. (See below, may need to tune for your area)
 
 ## Example Region Scope Remapping
