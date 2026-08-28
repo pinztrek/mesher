@@ -61,6 +61,9 @@ Should behave just like a normal meshcore 1.17'ish repeater.
 - Follow the instructions in the [*Flood Filtering* doc](https://github.com/mikecarper/MeshCore/blob/keymindCascade/docs/flood_filtering.md)
 to check/set recommended flooding configurations. (See below, may need to tune for your area)
 
+## Configure flooding policies / remapping via the console
+- Like above, use the console tool of your choice to enter the commands. There is a sample repeater section at the end of this doc. 
+
 ## Example Region Scope Filtering & Remapping commands
 
 ### Map one region scope to another prior to forwarding
