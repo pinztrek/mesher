@@ -95,7 +95,7 @@ sub-region.
   `set flood.max.unscoped 32`
 
 - Generous flood max for adverts
-  `flood.max.advert 32`
+  `set flood.max.advert 32`
 
 - Don't forward unscoped nuisance groups
 
