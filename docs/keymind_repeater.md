@@ -24,7 +24,7 @@
 
 
 ## keymind settings (Strong recommended for high sites)
-**See the (Keymind Installation document in this repo)[https://github.com/pinztrek/mesher/blob/main/docs/filtering_firmware_nodes.md] for how to install**
+**See the [Keymind Installation document in this repo](https://github.com/pinztrek/mesher/blob/main/docs/filtering_firmware_nodes.md) for how to install**
 
 ### Drop high hop #wardriving (default load on keymind)
 `set flood.rule.2 type=any channel=#wardriving hops=5+ drop`
