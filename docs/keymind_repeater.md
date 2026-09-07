@@ -33,7 +33,7 @@
 ### Drop any non-scoped wardriving that sneaks through
 `set flood.channel.scope.require  #wardriving`
 
-### Drop high hop Request/Anon flooding, only relevant locally
+### Drop high hop Request/Anon flooding which are only relevant locally
 `set flood.filter.3 req 5+`
 
 `set flood.filter.4 anon_req 7+`
