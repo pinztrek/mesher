@@ -24,7 +24,7 @@
 **See the [Georgia region commands document](https://github.com/pinztrek/mesher/blob/main/docs/ga_regions.md) for the exact commands for your geographic area**
 
 
-## keymind settings (Strongly recommended for high sites)
+## Keymind firmware variant settings (Strongly recommended for high sites)
 **See the [Keymind Installation document in this repo](https://github.com/pinztrek/mesher/blob/main/docs/filtering_firmware_nodes.md) for how to install**
 
 ### Drop high hop #wardriving (loaded by default on keymind)
