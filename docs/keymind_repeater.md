@@ -45,5 +45,6 @@
 `set flood.rule.7 type=any channel=#test hops=9+ drop`
 
 `set flood.rule.8 type=any channel=#bot hops=7+ drop`
+
 `set flood.rule.9 type=any channel=#wx hops=7+ drop`
 
