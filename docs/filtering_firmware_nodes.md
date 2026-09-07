@@ -81,39 +81,4 @@ to check/set recommended flooding configurations. (See below, may need to tune f
 `set flood.rule type=any hops=9+ in=none drop`
 
 ## Sample key settings for a repeater in us-ga-atl
-
-The following commands would be a good starting  point for a repeater to help reduce 
-non-relevant forwarding similar to the Openhop approach we are using. 
-
-You'll need to update the regions for your area. The example is for the *us-ga-atl*
-sub-region. 
-
-- Allow generous flood max for scoped traffic as it will self limit
-  `set flood.max 64`
-
-- Less generous flood max for unscoped traffic independent of path width
-  `set flood.max.unscoped 32`
-
-- Generous flood max for adverts
-  `set flood.max.advert 32`
-
-- Don't forward unscoped nuisance groups
-
-  `set flood.channel.scope.require #wardriving`<br>
-  `set flood.channel.scope.require #bot`<br>
-  `set flood.channel.scope.require #test`
-  
-
-- Drop high hop count if unscoped
-  `set flood.rule type=any hops=9+ in=none drop`
-
-- Remap *us-ga* #wardriving to *us-ga-atl* to limit spread
-
-  `set flood.rule type=any channel=#wardriving in=scope:us-ga region=us-ga-atl`
-
-- Remap incorrect *us-se* to *us-southeast* (all channels)
-
-  `set flood.rule type=any channel=* in=region:us-se region=us-southeast`
-
-  *The above remapping examples assumes the regions exist already*. 
-  For the case of incorrect regions, they need to exist, but your rule will remap them if encountered.
+*Moved to:* (https://github.com/pinztrek/mesher/blob/main/docs/keymind_repeater.md)
