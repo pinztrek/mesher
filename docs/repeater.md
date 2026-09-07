@@ -1,7 +1,7 @@
 # Recommended Repeater Settings
 
 ## Basic Settings
-`set path.hash.mode 1`
+`set path.hash.mode 2`
 
 `set flood.max 32`
 
@@ -11,7 +11,7 @@
 
 `set loop.detect strict`
 
-`set flood.advert.interval 19`
+`set flood.advert.interval 47`
 
 `set advert.interval 120`
 
