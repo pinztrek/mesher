@@ -18,9 +18,10 @@
 `set agc.reset.interval 4`
 
 ## Setup Minimal regions (replace the us-ga-XX with your subregion)
-`region def us-southeast us-ga us-ga-XX`
-
+`region def us-southeast us-ga us-ga-XX`<br>
 `region save`
+
+**See the [Georgia region commands document](https://github.com/pinztrek/mesher/blob/main/docs/ga_regions.md) for the exact commands for your geographic area**
 
 
 ## keymind settings (Strongly recommended for high sites)
