@@ -48,8 +48,8 @@ us-southeast
 - limit unscoped flooding to 5-6 hops
 - User education push
 
-### Complete Cutover Jan 1
-- forwarding of unscoped disabled
+### Potential Complete Cutover Jan 1 (tbd)
+- evaluate disable unscoped forwarding
 
 ## Configuration Commands
 
