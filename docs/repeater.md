@@ -44,6 +44,8 @@
 
 *Note: the rules above specify the particular slot for each rule. You can use without the* **".3"** *or similar to just have it fill the next available slot.*
 
+*They also use the older filter format as they don't need to specify a channel. You could get the same effect using the full rule: * `set flood.rule.3 type=req hops=5+ drop`
+
 ### Drop High Hop Bots
 `set flood.rule type=any channel=#test hops=9+ drop`
 
